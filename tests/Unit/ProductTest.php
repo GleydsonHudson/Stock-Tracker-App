@@ -2,15 +2,16 @@
 
 namespace Tests\Unit;
 
- use App\Models\Product;
- use App\Models\Retailer;
- use App\Models\Stock;
- use Illuminate\Foundation\Testing\RefreshDatabase;
- use Tests\TestCase;
+use App\Models\Product;
+use App\Models\Retailer;
+use App\Models\Stock;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
- class ProductTest extends TestCase
+class ProductTest extends TestCase
 {
     use RefreshDatabase;
+
     /**
      * @test
      */
@@ -24,7 +25,7 @@ namespace Tests\Unit;
 
         $stock = new Stock([
             'price' => 10000,
-            'url' => 'http://foo.com',
+            'url' => 'https://foo.com',
             'sku' => '12345',
             'in_stock' => true,
         ]);

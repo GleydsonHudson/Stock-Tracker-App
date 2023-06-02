@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Stock extends Model
 {
-
     use HasFactory;
 
     protected $table = 'stock';
@@ -26,11 +25,10 @@ class Stock extends Model
             // And then refresh the current stock record.
             $this->update([
                 'in_stock' => $results['available'],
-                'price'    => $results['price'],
+                'price' => $results['price'],
             ]);
         }
     }
-
 
     public function retailer(): BelongsTo
     {

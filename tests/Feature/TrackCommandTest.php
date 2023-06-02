@@ -9,7 +9,6 @@ use Tests\TestCase;
 
 class TrackCommandTest extends TestCase
 {
-
     use RefreshDatabase;
 
     /**
@@ -24,13 +23,13 @@ class TrackCommandTest extends TestCase
         $this->assertFalse(Product::first()->inStock());
 
         // Fake the request to the API Retailer endpoint
-        \Http::fake(static fn() => ['available' => true, 'price' => 2990]);
+        \Http::fake(static fn () => ['available' => true, 'price' => 2990]);
 
         // When
         // I trigger the php artisan track command
         // And assuming the stock is available now
         $this->artisan('track')
-             ->expectsOutput('All done!');
+            ->expectsOutput('All done!');
 
         // Then
         // The stock details should be refreshed

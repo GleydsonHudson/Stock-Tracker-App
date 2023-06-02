@@ -9,7 +9,6 @@ use Illuminate\Database\Seeder;
 
 class RetailerWithProductSeeder extends Seeder
 {
-
     /**
      * Run the database seeds.
      */
@@ -20,9 +19,9 @@ class RetailerWithProductSeeder extends Seeder
         $bestBuy = Retailer::create(['name' => 'Best Buy']);
 
         $bestBuy->addStock($switch, new Stock([
-            'price'    => 10000,
-            'url'      => 'http://foo.com',
-            'sku'      => '12345',
+            'price' => 10000,
+            'url' => 'http://foo.com',
+            'sku' => '12345',
             'in_stock' => false,
         ]));
     }
