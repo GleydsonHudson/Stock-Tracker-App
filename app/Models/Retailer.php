@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Clients\ClientFactory;
+use Facades\App\Clients\ClientFactory;
 use App\Clients\ClientInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -24,6 +24,6 @@ class Retailer extends Model
 
     public function client(): ClientInterface
     {
-        return (new ClientFactory())->make($this);
+        return ClientFactory::make($this);
     }
 }

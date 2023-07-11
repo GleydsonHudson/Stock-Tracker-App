@@ -18,8 +18,9 @@ class Stock extends Model
 
     public function track(): void
     {
-        $status = $this->retailer->client()
-                                 ->checkAvailability($this);
+        $status = $this->retailer
+            ->client()
+            ->checkAvailability($this);
 
         // And then refresh the current stock record.
         $this->update([
