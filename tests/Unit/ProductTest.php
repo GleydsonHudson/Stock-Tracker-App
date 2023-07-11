@@ -17,11 +17,11 @@ class ProductTest extends TestCase
      */
     public function it_checks_stocks_for_products_at_retailers(): void
     {
-        $switch = Product::create(['name' => 'Nintendo Switch']);
+        $product = Product::create(['name' => 'Nintendo Switch']);
 
-        $bestBuy = Retailer::create(['name' => 'Best Buy']);
+        $retailer = Retailer::create(['name' => 'Best Buy']);
 
-        $this->assertFalse($switch->inStock());
+        $this->assertFalse($product->inStock());
 
         $stock = new Stock([
             'price' => 10000,
@@ -30,9 +30,9 @@ class ProductTest extends TestCase
             'in_stock' => true,
         ]);
 
-        $bestBuy->addStock($switch, $stock);
+        $retailer->addStock($product, $stock);
 
-        $this->assertTrue($switch->inStock());
+        $this->assertTrue($product->inStock());
 
     }
 }
